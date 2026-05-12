@@ -1,8 +1,10 @@
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
+       
+
+        dict = {}
         for i in range (len(nums)):
-            for j in range (1+i,len(nums)):
-                if nums[i]+nums[j]==target:
-                    return [i,j]
-
-
+            remainder = target - nums[i]
+            if remainder in dict:
+                return [dict[remainder],i]
+            dict[nums[i]] = i
